@@ -1,4 +1,5 @@
-import 'package:client/pages/landing.dart';
+import 'package:client/pages/splash/landing.dart';
+import 'package:client/pages/splash/splash.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,8 +16,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Groove',
       theme: ThemeData(),
-      home: const SafeArea(
-        child: Landing(),
+      home: SafeArea(
+        child: Splash(),
       ),
     );
   }
