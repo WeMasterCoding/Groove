@@ -3,23 +3,31 @@ import 'package:client/utils/font_sizes.dart';
 import 'package:flutter/material.dart';
 
 class Landing extends StatelessWidget {
-  const Landing({super.key});
+  final String title;
+  final String description;
+
+  final String imagePath;
+  const Landing(
+      {super.key,
+      required this.title,
+      required this.description,
+      required this.imagePath});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.accent,
-      body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 30),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            _buildImage(),
-            _buildDivider(),
-            _buildContent(),
-            _buildDivider(),
-            _buildButtons(),
-          ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 30),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              _buildImage(),
+              _buildDivider(),
+              _buildContent(),
+            ],
+          ),
         ),
       ),
     );
@@ -29,7 +37,7 @@ class Landing extends StatelessWidget {
     return SizedBox(
       height: 440,
       child: Image.asset(
-        'images/LandingSplashOne.png',
+        imagePath,
         fit: BoxFit.cover,
       ),
     );
@@ -47,21 +55,22 @@ class Landing extends StatelessWidget {
 
   Widget _buildContent() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
+      padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 40),
       child: Column(
         children: [
-          const Text(
-            "Unleash Your Creativity with Ai Artistry",
-            style: TextStyle(
+          const SizedBox(height: 40),
+          Text(
+            title,
+            style: const TextStyle(
               color: Colors.white,
-              fontSize: AppTextStyles.textSizeExtraLarge,
+              fontSize: AppTextStyles.textSizeLarge,
               fontWeight: FontWeight.bold,
             ),
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 10),
           Text(
-            "Explore a world where imagination meets innovation at the tap of your finger",
+            description,
             style: TextStyle(
               color: Colors.white.withOpacity(0.5),
               fontSize: 16,
