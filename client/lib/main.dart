@@ -1,3 +1,4 @@
+import 'package:client/pages/auth/providers.dart';
 import 'package:client/pages/splash/landing.dart';
 import 'package:client/pages/splash/splash.dart';
 import 'package:flutter/material.dart';
@@ -16,8 +17,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Groove',
       theme: ThemeData(),
-      home: SafeArea(
-        child: Splash(),
+      home: const SafeArea(
+        child: Providers(),
       ),
     );
   }

@@ -58,9 +58,8 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-    - images/LandingSplashOne.png
-    - images/LandingSplashTwo.png
-    - images/LandingSplashThree.png
+    - images/
+
   # To add assets to your application, add an assets section, like this:
 
 
