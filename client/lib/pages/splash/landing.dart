@@ -1,5 +1,5 @@
-import 'package:client/utils/colors.dart';
-import 'package:client/utils/font_sizes.dart';
+import 'package:groove/utils/colors.dart';
+import 'package:groove/utils/font_sizes.dart';
 import 'package:flutter/material.dart';
 
 class Landing extends StatelessWidget {
@@ -55,7 +55,7 @@ class Landing extends StatelessWidget {
 
   Widget _buildContent() {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 40),
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 40),
       child: Column(
         children: [
           const SizedBox(height: 40),

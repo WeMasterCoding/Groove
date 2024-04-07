@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:client/widgets/input_field.dart';
+import 'package:groove/widgets/input_field.dart';
 
 class SignIn extends StatefulWidget {
   // const SignIn({super.key});
@@ -29,7 +29,9 @@ class _SignInState extends State<SignIn> {
               Icons.arrow_back,
               color: Colors.white,
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, '/authProvider');
+            },
           ),
         ),
         body: SingleChildScrollView(
@@ -118,7 +120,7 @@ class _SignInState extends State<SignIn> {
                 ),
 
                 Container(
-                  margin: EdgeInsets.only(top: 20, bottom: 30),
+                  margin: const EdgeInsets.only(top: 20, bottom: 30),
                   height: 0.7,
                   decoration: const BoxDecoration(
                     color: Colors.white38,
@@ -195,22 +197,31 @@ class _SignInState extends State<SignIn> {
                   ),
                 ),
 
-                const SizedBox(height: 20,),
+                const SizedBox(
+                  height: 20,
+                ),
 
                 const Row(
                   children: [
-                    SocialLogins(icon: Icon(Icons.discord, color: Colors.indigoAccent)),
+                    SocialLogins(
+                        icon: Icon(Icons.discord, color: Colors.indigoAccent)),
                     Spacer(),
-                    SocialLogins(icon: Icon(Icons.facebook, color: Colors.lightBlueAccent)),
+                    SocialLogins(
+                        icon: Icon(Icons.facebook,
+                            color: Colors.lightBlueAccent)),
                     Spacer(),
-                    SocialLogins(icon: Icon(Icons.discord, color: Colors.indigoAccent)),
+                    SocialLogins(
+                        icon: Icon(Icons.discord, color: Colors.indigoAccent)),
                     Spacer(),
-                    SocialLogins(icon: Icon(Icons.discord, color: Colors.indigoAccent)),
+                    SocialLogins(
+                        icon: Icon(Icons.discord, color: Colors.indigoAccent)),
                   ],
                 ),
 
                 Container(
-                  margin: EdgeInsets.only(top: 20,),
+                  margin: const EdgeInsets.only(
+                    top: 20,
+                  ),
                   height: 1,
                   decoration: const BoxDecoration(
                     color: Colors.white38,
@@ -219,7 +230,7 @@ class _SignInState extends State<SignIn> {
 
                 Center(
                   child: Container(
-                    margin: EdgeInsets.only(top: 10),
+                    margin: const EdgeInsets.only(top: 10),
                     width: double.infinity,
                     child: ElevatedButton(
                       onPressed: () {},
@@ -262,7 +273,7 @@ class _SignInState extends State<SignIn> {
 
 class SocialLogins extends StatelessWidget {
   final Icon icon;
-  const  SocialLogins({super.key, required this.icon});
+  const SocialLogins({super.key, required this.icon});
 
   @override
   Widget build(BuildContext context) {
@@ -271,8 +282,7 @@ class SocialLogins extends StatelessWidget {
         Container(
           width: 80,
           decoration: BoxDecoration(
-              color: Colors.white12,
-              borderRadius: BorderRadius.circular(40.0)),
+              color: Colors.white12, borderRadius: BorderRadius.circular(40.0)),
           child: Padding(
             padding: const EdgeInsets.all(10.0),
             child: icon,
@@ -282,4 +292,3 @@ class SocialLogins extends StatelessWidget {
     );
   }
 }
-
