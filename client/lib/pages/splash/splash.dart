@@ -1,4 +1,4 @@
-import 'package:client/pages/splash/landing.dart';
+import 'package:groove/pages/splash/landing.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -69,7 +69,7 @@ class _SplashPageState extends State<Splash> {
                 height: 20,
               ),
               _buildDivider(),
-              _buildButtons()
+              _buildButtons(context),
             ],
           ),
         ),
@@ -88,7 +88,7 @@ Widget _buildDivider() {
   );
 }
 
-Widget _buildButtons() {
+Widget _buildButtons(BuildContext context) {
   return Padding(
     padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
     child: Row(
@@ -96,7 +96,9 @@ Widget _buildButtons() {
       children: [
         Expanded(
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () async {
+              Navigator.pushNamed(context, '/authProvider');
+            },
             style: ElevatedButton.styleFrom(
               padding: const EdgeInsets.symmetric(
                 horizontal: 20.0,

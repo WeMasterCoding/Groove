@@ -1,11 +1,18 @@
-import 'package:client/utils/font_sizes.dart';
+import 'package:groove/main.dart';
+import 'package:groove/services/auth_providers.dart';
+import 'package:groove/utils/font_sizes.dart';
 import 'package:flutter/material.dart';
 
 import '../../utils/colors.dart';
 
-class Providers extends StatelessWidget {
+class Providers extends StatefulWidget {
   const Providers({super.key});
 
+  @override
+  State<Providers> createState() => _ProvidersState();
+}
+
+class _ProvidersState extends State<Providers> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -102,7 +109,7 @@ class Providers extends StatelessWidget {
                           width: 12,
                         ),
                         Text(
-                          "Continue with Discord",
+                          "Continue with Facebook",
                           style: TextStyle(
                             fontSize: AppTextStyles.textSizeMedium,
                             color: Colors.white,
@@ -115,7 +122,11 @@ class Providers extends StatelessWidget {
                     height: 20,
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () async {
+                      await AuthProvider().googleSignIn();
+                      // print("press signin with google");
+                      // print(supabase.auth.currentUser);
+                    },
                     style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(
                           horizontal: 30.0,
@@ -137,7 +148,7 @@ class Providers extends StatelessWidget {
                           width: 12,
                         ),
                         Text(
-                          "Continue with Discord",
+                          "Continue with Google",
                           style: TextStyle(
                             fontSize: AppTextStyles.textSizeMedium,
                             color: Colors.white,
@@ -172,7 +183,7 @@ class Providers extends StatelessWidget {
                           width: 12,
                         ),
                         Text(
-                          "Continue with Discord",
+                          "Continue with Twitter",
                           style: TextStyle(
                             fontSize: AppTextStyles.textSizeMedium,
                             color: Colors.white,
@@ -188,7 +199,9 @@ class Providers extends StatelessWidget {
               height: 40,
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, '/signin');
+              },
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 130.0,
@@ -222,7 +235,7 @@ class Providers extends StatelessWidget {
                   width: 5,
                 ),
                 Text(
-                  "Sign In",
+                  "Register",
                   style: TextStyle(
                     color: AppColors.primaryColor,
                     fontSize: AppTextStyles.textSizeMedium,
