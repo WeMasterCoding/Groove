@@ -5,7 +5,9 @@ import 'package:groove/main.dart';
 import 'package:groove/pages/auth/providers.dart';
 import 'package:groove/pages/auth/signin.dart';
 import 'package:groove/pages/home/home.dart';
+import 'package:groove/pages/home/rooms.dart';
 import 'package:groove/pages/splash/splash.dart';
+import 'package:socket_io_client/socket_io_client.dart' as IO;
 
 class Outlet extends StatefulWidget {
   const Outlet({super.key});
@@ -80,6 +82,13 @@ class AuthNavigator extends StatelessWidget {
   }
 }
 
+class RoomArguments {
+  final IO.Socket socket;
+  final String roomID;
+
+  RoomArguments(this.socket, this.roomID);
+}
+
 class HomeNavigator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -89,6 +98,14 @@ class HomeNavigator extends StatelessWidget {
         switch (settings.name) {
           case '/':
             return MaterialPageRoute(builder: (_) => Home());
+
+          case '/room':
+            final args = settings.arguments as RoomArguments;
+            return MaterialPageRoute(
+                builder: (_) => Room(
+                      socket: args.socket,
+                      roomID: args.roomID,
+                    ));
 
           default:
             return MaterialPageRoute(
