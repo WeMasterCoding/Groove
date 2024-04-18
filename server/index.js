@@ -62,6 +62,23 @@ io.on('connection', (socket=>{
     socket.on('checkRooms', ()=>{
         console.log(io.sockets.adapter.rooms)
     })
+    
+    // play-video
+    socket.on('play-video', ({videoURL, roomID})=>{
+        console.log('videoUrl is-> ', videoURL);
+        console.log('roomID is-> ', roomID);
+
+        io.to(roomID).emit('r-video', videoURL);
+        
+    })
+
+    //chat check
+    socket.on('msg-send', (data)=>{
+        console.log('msg is-> ', data.msg);
+        console.log('room id is-> ', data.roomID);
+
+        io.to(data.roomID).emit('r-msg', data.msg);
+    }) 
 }))
 
 httpServer.listen(port, '0.0.0.0',()=>{
